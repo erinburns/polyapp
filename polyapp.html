@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sample FirebaseUI App</title>
+        <!-- FirebaseUI Auth CDN -->
+        <script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" />
+        
+        <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    </head>
+    
+    <body>
+    <h1>Welcome to My Awesome App</h1>
+    <div id="firebaseui-auth-container">
+        <form action="/" method="post">
+            <label> Email </label><input type="email"required autocomplete="off"/>
+            <label> Password </label><input type="password"required autocomplete="off"/>
+            <button id="submit" type="submit"> Submit </button>
+        </form>
+    </div>
+    <script src="signin.js"></script>
+    <!-- Firebase creds -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBK6KdtcAqnAyN6HMVEP04rO3f6B6p26MY",
+        authDomain: "polyapp-49126.firebaseapp.com",
+        databaseURL: "https://polyapp-49126.firebaseio.com",
+        projectId: "polyapp-49126",
+        storageBucket: "polyapp-49126.appspot.com",
+        messagingSenderId: "108681012023"
+      };
+      firebase.initializeApp(config);
+    </script>
+        
+    </body>
+</html>
